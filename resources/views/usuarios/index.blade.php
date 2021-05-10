@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Lista de Usuarios <a href="usuarios/create">
+        <h2>Lista de Usuarios <a href="{{route('register')}}">
                 <button type="button" class="btn btn-success float-right">Agregar usuario</button>
             </a></h2>
         <table class="table table-hover">
@@ -23,7 +23,11 @@
                     <td>{{$user->email}}</td>
                     <td>
                         <a href="{{route('usuarios.edit', $user)}}"><button type="button" class="btn btn-primary">Editar</button></a>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
+                        <form action="{{route('usuarios.destroy', $user)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

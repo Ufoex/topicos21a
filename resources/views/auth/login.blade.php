@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </form>
-                    <a class="form-group row mb-0" href="{{route('usuarios')}}">
+                    <a class="form-group row mb-0" href="{{route('register')}}">
                         <button type="submit" class="btn btn-success col-md-8 offset-md-2">
                             {{ __('auth.create') }}
                         </button>
