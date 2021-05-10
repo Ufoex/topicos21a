@@ -12,4 +12,11 @@ return [
     'delete-button' => 'Eliminar',
     'add-user-button' => 'Agregar Usuario',
     'edit-button' => 'Editar',
+    'users' => 'Usuarios',
+    'home' => 'Inicio',
+    'login' => 'Iniciar Sesión',
+    'notes' => 'Notas',
+    'logout' => 'Cerrar Session',
+    'welcome' => 'Bienvenido ',
+    'logged' => 'Te has autenticado!!!',
 ];
