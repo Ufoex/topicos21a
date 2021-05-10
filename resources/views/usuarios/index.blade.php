@@ -27,6 +27,9 @@
                             <td>{{$user->email}}</td>
                             <td>
                                 <form action="{{route('usuarios.destroy', $user)}}" method="POST">
+                                    <a href="{{route('usuarios.show', $user)}}">
+                                        <button type="button" class="btn btn-dark">{{__('custom.show')}}</button>
+                                    </a>
                                     <a href="{{route('usuarios.edit', $user)}}">
                                         <button type="button" class="btn btn-primary">Editar</button>
                                     </a>

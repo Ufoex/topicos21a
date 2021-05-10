@@ -19,4 +19,8 @@ return [
     'logout' => 'Log Out',
     'welcome' => 'Wellcome  ',
     'logged' => 'You are logged in!!!',
+    'show' => 'Show',
+    'return' => 'Return',
+    'info' => 'Information',
+
 ];

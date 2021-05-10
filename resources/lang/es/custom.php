@@ -19,4 +19,7 @@ return [
     'logout' => 'Cerrar Session',
     'welcome' => 'Bienvenido ',
     'logged' => 'Te has autenticado!!!',
+    'show' => 'Mostrar',
+    'return' => 'Regresar',
+    'info' => 'Informacion',
 ];

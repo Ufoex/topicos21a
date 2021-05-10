@@ -15,8 +15,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-//Route::get('/',[HomeController::class, 'index']);
-//Route::get('/usuarios', [UserController::class, 'index']);
 
 
 
@@ -30,12 +28,8 @@ Route::post('usuarios',[UserController::class, 'store'])->name('usuarios.store')
 Route::get('usuarios/{id}/edit',[UserController::class, 'edit'])->name('usuarios.edit');
 Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.update');
 Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuarios.destroy');
+Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
 
 
 
 
-/*
-Route::get('/usuarios', function () {
-    return view('usuarios');
-});
-*/
