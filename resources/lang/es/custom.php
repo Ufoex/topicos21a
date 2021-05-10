@@ -24,4 +24,7 @@ return [
     'info' => 'Informacion',
     'alert-message' => 'Esta seguro?',
     'aler-menssage2' => 'Se va a eliminar el dato',
+    'spanish'=>'Español',
+    'english' => 'Ingles',
+    ''=>'',
 ];

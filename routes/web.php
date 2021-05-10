@@ -21,7 +21,6 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index']) ->name('usuario.create')->middleware('auth');
 
 Route::get('usuarios/create', [App\Http\Controllers\UserController::class, 'create'])->name('usuarios');
@@ -30,6 +29,7 @@ Route::get('usuarios/{id}/edit',[UserController::class, 'edit'])->name('usuarios
 Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.update');
 Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuarios.destroy');
 Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
+
 
 
 

@@ -24,5 +24,7 @@ return [
     'info' => 'Information',
     'alert-message' => 'Are you sure?',
     'aler-menssage2' => 'The data is going to be deleted',
+    'spanish'=>'Spanish',
+    'english' => 'English',
 
 ];
