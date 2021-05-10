@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2 class="float-left">Rafa Joto</h2>
+                <h2 class="float-left">{{__('custom.list-user')}}</h2>
                 <a href="{{route('register')}}">
                     <button type="button" class="btn btn-success float-right">{{__('custom.add-user-button')}}</button>
                 </a>
