@@ -14,9 +14,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $users = User::all();
-        return view('usuarios.index',['users' => $users]);
+    public function index(Request $request){
+
+        if($request){
+            $query = trim($request->get('search'));
+            $users = User::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+            return view('usuarios.index',['users' => $users, 'search' => $query]);
+
+        }
     }
 
     /**

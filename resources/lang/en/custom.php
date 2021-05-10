@@ -22,5 +22,7 @@ return [
     'show' => 'Show',
     'return' => 'Return',
     'info' => 'Information',
+    'alert-message' => 'Are you sure?',
+    'aler-menssage2' => 'The data is going to be deleted',
 
 ];

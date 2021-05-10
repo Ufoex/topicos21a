@@ -22,4 +22,6 @@ return [
     'show' => 'Mostrar',
     'return' => 'Regresar',
     'info' => 'Informacion',
+    'alert-message' => 'Esta seguro?',
+    'aler-menssage2' => 'Se va a eliminar el dato',
 ];

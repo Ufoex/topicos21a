@@ -21,6 +21,7 @@ use App\Http\Controllers\UserController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index']) ->name('usuario.create')->middleware('auth');
 
 Route::get('usuarios/create', [App\Http\Controllers\UserController::class, 'create'])->name('usuarios');

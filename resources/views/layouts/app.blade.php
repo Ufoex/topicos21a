@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -23,6 +24,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
