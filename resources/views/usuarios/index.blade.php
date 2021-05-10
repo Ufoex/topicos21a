@@ -22,11 +22,11 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>
-                        <a href="{{route('usuarios.edit', $user)}}"><button type="button" class="btn btn-primary">Editar</button></a>
                         <form action="{{route('usuarios.destroy', $user)}}" method="POST">
+                            <a href="{{route('usuarios.edit', $user)}}"><button type="button" class="btn btn-primary">Editar</button></a>
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </td>
                 </tr>

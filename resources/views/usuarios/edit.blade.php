@@ -16,7 +16,7 @@
                         <input type="email" class="form-control" name="email" value="{{$user->email}}"  placeholder="Ingresa tu correo" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Actualizar</button>
-                    <button type="button" class="btn btn-danger">Cancelar</button>
+                    <a href="{{route('usuario.create')}}"><button type="button" class="btn btn-danger">Cancelar</button></a>
                 </form>
             </div>
         </div>

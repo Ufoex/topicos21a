@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use phpDocumentor\Reflection\Project;
 
 class UserController extends Controller
 {
@@ -94,10 +93,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Project $project): \Illuminate\Http\RedirectResponse
+    public function destroy($id): \Illuminate\Http\RedirectResponse
     {
+        $usuario = User::findOrFail($id);
 
-        $project->delete();
+        $usuario->delete($id);
 
         return redirect()->route('usuario.create');
     }
