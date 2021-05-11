@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@extends('usuarios.dino')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -17,8 +17,8 @@
                     {{ __('custom.logged') }}
                 </div>
             </div>
+            @include('usuarios.dino')
         </div>
     </div>
-    @yield('dino')
 </div>
 @endsection

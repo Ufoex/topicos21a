@@ -1959,9 +1959,7 @@
     </script>
 
 
-    <style>/* Copyright 2014 The Chromium Authors. All rights reserved.
-   Use of this source code is governed by a BSD-style license that can be
-   found in the LICENSE file. */
+    <style>
 
         a {
             color: #585858;
@@ -1970,7 +1968,6 @@
         body {
             background-color: #f7f7f7;
             color: #585858;
-            font-size: 125%;
         }
 
         body.safe-browsing {
@@ -2224,9 +2221,7 @@
             }
         }
     </style>
-    <style>/* Copyright 2013 The Chromium Authors. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file. */
+    <style>
 
         /* Don't use the main frame div when the error is in a subframe. */
         html[subframe] #main-frame-error {

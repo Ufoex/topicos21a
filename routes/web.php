@@ -32,7 +32,7 @@ Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.
 
 Route::get('/dino', function () {
     return view('usuarios.dino');
-});
+})->name('dino');
 
 
 
