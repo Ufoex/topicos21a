@@ -17,9 +17,10 @@
                         </div>
                     </div>
                 @endif
-                <a href="{{route('usuarios')}}">
-                    <button type="button" class="btn btn-success float-right">{{__('custom.add-user-button')}}</button>
-                </a>
+                <button type="button" class="btn btn-success float-right" data-toggle="modal"
+                        data-target="#add">
+                    {{__('custom.add-user-button')}}
+                </button>
             </div>
             <div class="card-body">
                 <table class="table table-hover">
@@ -181,5 +182,23 @@
                 </div>
             </div>
         @endforeach
+
+        <!-- Modal mostrar -->
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="delete"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{__('custom.add-user-button')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @include('usuarios.create')
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
