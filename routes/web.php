@@ -34,3 +34,4 @@ Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.
 
 
 
+

@@ -172,7 +172,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('custom.login') }}</a>
                                 @else
                                 {{ Auth::user()->name }}
-                                <a class="dropdown-item text-white-50" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="text-white-50" href="{{ route('logout') }}" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
                                     {{__('custom.logout')}}
                                 </a>

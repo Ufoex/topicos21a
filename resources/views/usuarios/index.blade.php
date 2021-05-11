@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('usuarios.delete')
 
 @section('content')
     <div class="container">
@@ -44,7 +43,9 @@
                                 <a href="{{route('usuarios.edit', $user)}}">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
-                                @yield('button')
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                                    {{__('custom.delete-button')}}
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -52,6 +53,28 @@
                 </table>
             </div>
         </div>
-        @yield('modal')
+        <!-- Modal eliminar -->
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{__('custom.alert-message')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{__('custom.aler-menssage2')}}
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{route('usuarios.destroy', $user)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('custom.cancel-button')}}</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
 @endsection
