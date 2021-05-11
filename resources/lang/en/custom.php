@@ -27,4 +27,5 @@ return [
     'spanish'=>'Spanish',
     'english' => 'English',
     'dino' => 'Press "Space" to jump your Dino and start the game.',
+    'back' => 'Back',
 ];
