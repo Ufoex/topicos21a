@@ -30,6 +30,10 @@ Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.up
 Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuarios.destroy');
 Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
 
+Route::get('/dino', function () {
+    return view('usuarios.dino');
+});
+
 
 
 

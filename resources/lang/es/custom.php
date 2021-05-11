@@ -26,5 +26,6 @@ return [
     'aler-menssage2' => 'Se va a eliminar el dato',
     'spanish'=>'Español',
     'english' => 'Ingles',
+    'dino' => 'Preciona "Espacio" para saltar he iniciar el juego.',
     ''=>'',
 ];

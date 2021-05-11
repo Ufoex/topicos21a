@@ -26,5 +26,5 @@ return [
     'aler-menssage2' => 'The data is going to be deleted',
     'spanish'=>'Spanish',
     'english' => 'English',
-
+    'dino' => 'Press "Space" to jump your Dino and start the game.',
 ];
