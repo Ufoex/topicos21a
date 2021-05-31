@@ -204,7 +204,7 @@
                                     class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
-                                        {{__('custom.users')}}
+                                        Hola miriam
                                         <?php use App\Models\User; $users_count = User::all()->count(); ?>
                                         <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
                                     </p>
