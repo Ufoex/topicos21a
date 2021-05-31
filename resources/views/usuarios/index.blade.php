@@ -185,7 +185,7 @@
         @endforeach
 
         <!-- Modal crear -->
-        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="crear"
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="delete"
              aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
