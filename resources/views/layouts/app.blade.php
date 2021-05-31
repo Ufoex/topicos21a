@@ -211,19 +211,59 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('usuario.create')}}"
-                                   class="{{ Request::path() === 'proveedor' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fa fa-cog fa-fw"></i>
-                                    <p>Proveedor</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('usuario.create')}}"
-                                   class="{{ Request::path() === 'producto' ? 'nav-link active' : 'nav-link' }}">
+                                <a href="{{url('proveedor')}}"
+                                   class="{{ Request::path() === 'proveedores' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fa fa-book fa-fw"></i>
-                                    <p>Producto</p>
+                                    <p>
+                                        Proveedores
+
+                                        <span class="right badge badge-danger"></span>
+                                    </p>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="{{url('productos')}}"
+                                   class="{{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fa fa-shopping-cart"></i>
+                                    <p>
+                                        Productos
+
+                                        <span class="right badge badge-danger"></span>
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                                <a href="{{url('clientes')}}"
+                                   class="{{ Request::path() === 'clientes' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-handshake"></i>
+                                    <p>
+                                        Clientes
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{url('ventas')}}"
+                                   class="{{ Request::path() === 'ventas' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-shopping-bag"></i>
+                                    <p>
+                                        Ventas
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{url('roles')}}"
+                                   class="{{ Request::path() === 'roles' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-key"></i>
+                                    <p>
+                                        Roles
+                                    </p>
+                                </a>
+                            </li>
+
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
