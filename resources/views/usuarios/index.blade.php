@@ -37,15 +37,16 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#show{{$user->id}}">
+                                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#show{{$user->id}}">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
                                     {{__('custom.show')}}
                                 </button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#edit{{$user->id}}">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit{{$user->id}}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
                                     {{__('custom.edit-button')}}
                                 </button>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     {{__('custom.delete-button')}}
                                 </button>
                             </td>
@@ -183,8 +184,8 @@
             </div>
         @endforeach
 
-        <!-- Modal mostrar -->
-        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="delete"
+        <!-- Modal crear -->
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="crear"
              aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">

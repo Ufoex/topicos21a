@@ -210,37 +210,20 @@
                                     </p>
                                 </a>
                             </li>
-
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-sticky-note"></i>
-                                    <p>{{__('custom.notes')}}<i class="fas fa-angle-left right"></i></p>
+                            <li class="nav-item">
+                                <a href="{{route('usuario.create')}}"
+                                   class="{{ Request::path() === 'proveedor' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fa fa-cog fa-fw"></i>
+                                    <p>Proveedor</p>
                                 </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="notas/todas"
-                                            class="{{ Request::path() === 'notas/todas' ? 'nav-link active' : 'nav-link' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Todas</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="notas/favoritas"
-                                            class="{{ Request::path() === 'notas/favoritas' ? 'nav-link active' : 'nav-link' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Favoritas</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="notas/archivadas"
-                                            class="{{ Request::path() === 'notas/archivadas' ? 'nav-link active' : 'nav-link' }}">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Archivadas</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="{{route('usuario.create')}}"
+                                   class="{{ Request::path() === 'producto' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fa fa-book fa-fw"></i>
+                                    <p>Producto</p>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
