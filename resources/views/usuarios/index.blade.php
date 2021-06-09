@@ -45,7 +45,7 @@
                                     <i class="fa fa-cog" aria-hidden="true"></i>
                                     {{__('custom.edit-button')}}
                                 </button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$user->id}}">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     {{__('custom.delete-button')}}
                                 </button>
@@ -57,7 +57,8 @@
             </div>
         </div>
         <!-- Modal eliminar -->
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+        @foreach ($users as $user)
+        <div class="modal fade" id="delete{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -81,6 +82,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
         <!-- Modal mostrar -->
         @foreach($users as $user)
             <div class="modal fade" id="show{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="delete"
