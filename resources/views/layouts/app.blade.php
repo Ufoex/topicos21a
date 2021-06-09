@@ -1,209 +1,104 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<!DOCTYPE html>
+<html  >
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Proyecto21a</title>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="{{asset('dist/js/adminlte.js')}}"></script>
-    <script src="{{asset('js/app.js')}}"></script>
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <!-- Site made with Mobirise Website Builder v5.3.5, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.3.5, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/allnatura-silueta-198x201.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>ProyectoTopicosSII</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+  
 </head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div id="app">
-        <div class="wrapper">
-
-            <!-- Navbar -->
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-                    </li>
-                </ul>
-
-                <!-- SEARCH FORM -->
-                <form class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-
-            </nav>
-            <!-- /.navbar -->
-
-            <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <!-- Brand Logo -->
-                <a href="{{ url('/') }}" class="brand-link">
-                    <img src="{{asset('dist/img/estadisticas.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                        style="opacity: .8">
-                    <span class="brand-text font-weight-light">Proyecto21a</span>
-                </a>
-
-                <!-- Sidebar -->
-                <div class="sidebar">
-                    <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-                        </div>
-                        <div class="info container-fluid">
-                            <a href="#" class="d-block">
-                                @guest
-                                <a class="nav-link col-md-6 text-center" style="position: absolute;" href="{{ route('login') }}">{{ __('custom.login') }}</a>
-                                @else
-                                {{ Auth::user()->name }}
-                                <a class="text-white-50" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                                    {{__('custom.logout')}}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-
-                                @endguest
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Sidebar Menu -->
-                    <nav class="mt-2 content">
-                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
-
-                            <li class="nav-item">
-                                <a href="/" class="{{ Request::path() === '/' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-home"></i>
-                                    <p>{{__('custom.home')}}</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{route('usuario.create')}}"
-                                    class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-users"></i>
-                                    <p>
-                                        {{__('custom.users')}}
-                                        <?php use App\Models\User; $users_count = User::all()->count(); ?>
-                                        <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('proveedor')}}"
-                                   class="{{ Request::path() === 'proveedores' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fa fa-book fa-fw"></i>
-                                    <p>
-                                        Proveedores
-
-                                        <span class="right badge badge-danger"></span>
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{url('productos')}}"
-                                   class="{{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fa fa-shopping-cart"></i>
-                                    <p>
-                                        Productos
-
-                                        <span class="right badge badge-danger"></span>
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item ">
-                                <a href="{{url('clientes')}}"
-                                   class="{{ Request::path() === 'clientes' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-handshake"></i>
-                                    <p>
-                                        Clientes
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{url('ventas')}}"
-                                   class="{{ Request::path() === 'ventas' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-shopping-bag"></i>
-                                    <p>
-                                        Ventas
-                                    </p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{url('roles')}}"
-                                   class="{{ Request::path() === 'roles' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="nav-icon fas fa-key"></i>
-                                    <p>
-                                        Roles
-                                    </p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </nav>
-                    <!-- /.sidebar-menu -->
-                </div>
-                <!-- /.sidebar -->
-            </aside>
-
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <div class="content-header">
-
-                </div>
-                <!-- /.content-header -->
-
-                <!-- Main content -->
-                <section class="content">
-                    @yield('content')
-                </section>
-                <!-- /.content -->
+<body>
+  
+  <section class="menu cid-s48OLK6784" once="menu" id="menu1-k">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="https://mobiri.se">
+                        <img src="assets/images/allnatura-silueta-198x201.png" alt="Mobirise" style="height: 6rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="https://mobiri.se"></a></span>
             </div>
-            <!-- /.content-wrapper -->
-            <footer class="main-footer">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item dropdown open"><a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="true" data-toggle="dropdown-submenu"><span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio</a><div class="dropdown-menu"><a class="text-black dropdown-item display-4" href="#" aria-expanded="true"><span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar sesión</a><a class="text-black dropdown-item display-4" href="#" aria-expanded="false"><span class="mobi-mbri mobi-mbri-close mbr-iconfont mbr-iconfont-btn"></span>Cerrar sesión</a></div></li><li class="nav-item"><a class="nav-link link text-black display-4" href="#" aria-expanded="true"><span class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>Usuarios</a></li><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>Proveedores</a></li><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>Clientes</a></li><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>Productos</a></li><li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>Roles</a></li></ul>
+                
+                
+            </div>
+        </div>
+    </nav>
 
-            </footer>
+</section>
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
+<section class="header10 cid-szSDOVJc9Z" id="header10-n">
+
+    
+
+    
+
+    <div class="align-center container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-9">
+                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>INTRO WITH IMAGE</strong></h1>
+                <p class="mbr-text mbr-fonts-style display-7">
+                    Intro with a picture at the bottom. Great for pro-coders for fast prototyping and small customers' projects.</p>
+                <div class="mbr-section-btn mt-3"><a class="btn btn-secondary display-4" href="https://mobiri.se">Create Free Website!</a></div>
+                <div class="image-wrap mt-4">
+                    <img src="assets/images/app4.jpg" alt="Mobirise" title="">
+                </div>
+            </div>
         </div>
     </div>
-</body>
+</section>
 
+<section class="footer3 cid-s48P1Icc8J mbr-reveal" once="footers" id="footer3-l">
+
+    
+
+    
+
+    <div class="container-fluid">
+        <div class="media-container-row align-center mbr-white">
+            
+            
+            <div class="row row-copirayt">
+                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7"><br>Uriel Mora &amp; Miriam Hernández<br>© Copyright 2020</p>
+            </div>
+        </div>
+    </div>
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/f" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise - <a href="https://mobirise.site/k" style="color:#aaa;">Visit site</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
+</body>
 </html>

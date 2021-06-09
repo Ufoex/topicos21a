@@ -9,6 +9,14 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function venta(){
+        return $this->hasMany(venta::class);
+    }
+
+    public function cliente(){
+        return $this->hasMany(cliente::class);
+    }
+
     use HasFactory, Notifiable;
 
     /**
