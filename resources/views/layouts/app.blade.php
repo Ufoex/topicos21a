@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('css/assets/dropdown/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/assets/socicon/css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/assets/theme/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="preload"
           href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
           as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -29,6 +30,13 @@
     </noscript>
     <link rel="preload" as="style" href="{{asset('css/assets/mobirise/css/mbr-additional.css')}}">
     <link rel="stylesheet" href="{{asset('css/assets/mobirise/css/mbr-additional.css')}}" type="text/css">
+    <style>
+        .container {
+            position: relative;
+            min-height: 600px;
+            height: 80%;
+        }
+    </style>
 
 
 </head>
@@ -96,23 +104,7 @@
 </section>
 
 <section class="header10 cid-szSDOVJc9Z" id="header10-n">
-
-
-    <div class="align-center container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-9">
-                <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1"><strong>INTRO WITH IMAGE</strong></h1>
-                <p class="mbr-text mbr-fonts-style display-7">
-                    Intro with a picture at the bottom. Great for pro-coders for fast prototyping and small customers'
-                    projects.</p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-secondary display-4" href="https://mobiri.se">Create
-                        Free Website!</a></div>
-                <div class="image-wrap mt-4">
-                    <img src="{{asset('css/assets/images/app4.jpg')}}" alt="Mobirise" title="">
-                </div>
-            </div>
-        </div>
-    </div>
+    @yield('content')
 </section>
 
 <section class="footer3 cid-s48P1Icc8J mbr-reveal" once="footers" id="footer3-l">
@@ -124,7 +116,7 @@
 
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7"><br>Uriel Mora &amp; Miriam
-                    Hernández<br>© Copyright 2020</p>
+                    Hernández<br>© Copyright 2021</p>
             </div>
         </div>
     </div>
