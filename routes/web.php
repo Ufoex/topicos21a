@@ -21,10 +21,11 @@ use App\Http\Controllers\UserController;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('usuarios', [App\Http\Controllers\UserController::class, 'index']) ->name('usuario.create')->middleware('auth');
 
-Route::get('usuarios/create', [App\Http\Controllers\UserController::class, 'create'])->name('usuarios');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('usuarios', [UserController::class, 'index']) ->name('usuario.create')->middleware('auth');
+
+Route::get('usuarios/create', [UserController::class, 'create'])->name('usuarios');
 Route::post('usuarios',[UserController::class, 'store'])->name('usuarios.store');
 Route::get('usuarios/{id}/edit',[UserController::class, 'edit'])->name('usuarios.edit')->middleware('auth');
 Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.update')->middleware('auth');
@@ -32,7 +33,7 @@ Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuario
 Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
 
 Route::get('/dino', function () {
-    return view('usuarios.dino');
+    return view('layouts.app2');
 })->name('dino');
 
 

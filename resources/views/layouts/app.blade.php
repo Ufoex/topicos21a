@@ -48,8 +48,9 @@
         <div class="container-fluid">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="https://mobiri.se">
-                        <img src="{{asset('css/assets/images/allnatura-silueta-198x201.png')}}" alt="Mobirise" style="height: 6rem;">
+                    <a href="{{route('home')}}">
+                        <img src="{{asset('css/assets/images/allnatura-silueta-198x201.png')}}" alt="Mobirise"
+                             style="height: 6rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7"
@@ -66,30 +67,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                    <li class="nav-item dropdown open"><a class="nav-link link text-black dropdown-toggle display-4"
-                                                          href="#" aria-expanded="true"
-                                                          data-toggle="dropdown-submenu"><span
-                                class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio</a>
-                        <div class="dropdown-menu"><a class="text-black dropdown-item display-4" href="#"
-                                                      aria-expanded="true"><span
-                                    class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar
-                                sesión</a><a class="text-black dropdown-item display-4" href="#"
-                                             aria-expanded="false"><span
+                    <li class="nav-item dropdown open">
+                        <a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="true"
+                           data-toggle="dropdown-submenu">
+                            <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="text-black dropdown-item display-4" href="#" aria-expanded="true">
+                                <span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar
+                                sesión
+                            </a>
+                            <a class="text-black dropdown-item display-4" href="#"
+                               aria-expanded="false"><span
                                     class="mobi-mbri mobi-mbri-close mbr-iconfont mbr-iconfont-btn"></span>Cerrar sesión</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="#"
+                    <li class="nav-item"><a class="nav-link link text-black display-4"
+                                            href="{{route('usuario.create')}}"
                                             aria-expanded="true"><span
                                 class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('proveedor')}}"><span
                                 class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>Proveedores</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('clientes')}}"><span
                                 class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('productos')}}"><span
                                 class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>Productos</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
+                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('ventas')}}"><span
                                 class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Ventas</a>
                     </li>
                     <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
@@ -107,7 +112,7 @@
     @yield('content')
 </section>
 
-<section class="footer3 cid-s48P1Icc8J mbr-reveal" once="footers" id="footer3-l">
+<section class="footer3 cid-s48P1Icc8J " once="footers" id="footer3-l">
 
 
     <div class="container-fluid">
@@ -124,9 +129,8 @@
 <section
     style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;">
     <a href="https://mobirise.site/f" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a>
-    <p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise - <a href="https://mobirise.site/k"
-                                                                                      style="color:#aaa;">Visit site</a>
-    </p></section>
+    <p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Construido mediante Laravel 8</p>
+</section>
 <script src="{{asset('css/assets/web/assets/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('css/assets/popper/popper.min.js')}}"></script>
 <script src="{{asset('css/assets/tether/tether.min.js')}}"></script>

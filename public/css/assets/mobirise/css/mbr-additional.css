@@ -36,7 +36,7 @@ body {
 .display-7 {
   font-family: 'Jost', sans-serif;
   font-size: 1.2rem;
-  line-height: 1.5;
+  line-height: 1;
 }
 .display-7 > .mbr-iconfont {
   font-size: 1.5rem;
@@ -1458,7 +1458,7 @@ a {
 .cid-szSDOVJc9Z {
   padding-top: 6rem;
   padding-bottom: 0rem;
-  background-color: #9fdbf8;
+  background-color: #b4e295;
 }
 .cid-szSDOVJc9Z .image-wrap img {
   width: 100%;
