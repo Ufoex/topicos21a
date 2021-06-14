@@ -49,7 +49,7 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="{{route('home')}}">
-                        <img src="{{asset('css/assets/images/allnatura-silueta-198x201.png')}}" alt="Mobirise"
+                        <img src="{{asset('css/assets/images/allnatura-silueta-198x201.png')}}" alt="Tipicos2"
                              style="height: 6rem;">
                     </a>
                 </span>
@@ -67,8 +67,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                    @guest
                     <li class="nav-item dropdown open">
                         <a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="true"
+                           data-toggle="dropdown-submenu">
+                            <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="text-black dropdown-item display-4" href="#" aria-expanded="true">
+                                <span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar
+                                sesión
+                            </a>
+                        </div>
+                    </li>
+                    @else
+                    <li class="nav-item dropdown open">
+                        <a class="nav-link link text-black dropdown-toggle display-4" href="{{url('/')}}" aria-expanded="true"
                            data-toggle="dropdown-submenu">
                             <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio
                         </a>
@@ -82,23 +96,37 @@
                                     class="mobi-mbri mobi-mbri-close mbr-iconfont mbr-iconfont-btn"></span>Cerrar sesión</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4"
-                                            href="{{route('usuario.create')}}"
-                                            aria-expanded="true"><span
-                                class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('proveedor')}}"><span
-                                class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>Proveedores</a>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{route('usuario.create')}}" aria-expanded="true">
+                            <span class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>Usuarios
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('clientes')}}"><span
-                                class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('productos')}}"><span
-                                class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>Productos</a>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{url('proveedor')}}">
+                            <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>Proveedores
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="{{url('ventas')}}"><span
-                                class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Ventas</a>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{url('clientes')}}">
+                            <span class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>Clientes
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobirise.com"><span
-                                class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>Roles</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{url('productos')}}">
+                            <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>Productos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{url('ventas')}}">
+                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Ventas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{{url('roles')}}">
+                            <span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>Roles
+                        </a>
+                    </li>
+                    @endguest
                 </ul>
 
 
