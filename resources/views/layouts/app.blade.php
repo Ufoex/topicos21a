@@ -84,17 +84,18 @@
                     <li class="nav-item dropdown open">
                         <a class="nav-link link text-black dropdown-toggle display-4" href="{{url('/')}}" aria-expanded="true"
                            data-toggle="dropdown-submenu">
-                            <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>Inicio
+                            <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>{{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
-                            <a class="text-black dropdown-item display-4" href="#" aria-expanded="true">
-                                <span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar
-                                sesión
+                            <a class="nav-link link text-black display-4" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                {{__('custom.logout')}}
                             </a>
-                            <a class="text-black dropdown-item display-4" href="#"
-                               aria-expanded="false"><span
-                                    class="mobi-mbri mobi-mbri-close mbr-iconfont mbr-iconfont-btn"></span>Cerrar sesión</a>
-                        </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{{route('usuario.create')}}" aria-expanded="true">
