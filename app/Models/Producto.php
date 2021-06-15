@@ -11,4 +11,11 @@ class Producto extends Model
         return $this->hasOne(proveedor::class);
     }
     use HasFactory;
+
+    /*protected $fillableProducto = [
+        'name',
+        'descripcion',
+        'cantidad',
+        'precio',
+    ];*/
 }

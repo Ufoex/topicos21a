@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\UserController;
 
 
 
-
+//RUTAS DE USUARIO
 Auth::routes();
 
 
@@ -37,7 +38,12 @@ Route::get('/dino', function () {
 })->name('dino');
 
 
+//RUTAS DE PRODUCTOS
+Route::get('productos', [ProductoController::class, 'index']) ->name('productos')->middleware('auth');
+Route::get('productos', [ProductoController::class, 'index']) ->name('producto.create')->middleware('auth');
 
+Route::get('productos/create', [ProductoController::class, 'create'])->name('productos');
+Route::post('productos',[ProductoController::class, 'store'])->name('productos.store');
 
 
 

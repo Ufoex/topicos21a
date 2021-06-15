@@ -12,5 +12,7 @@ class Proveedor extends Model
     }
 
     use HasFactory;
+
+
 }
 

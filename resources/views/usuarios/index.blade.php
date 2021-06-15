@@ -76,7 +76,7 @@
                             @method('DELETE')
                             <button type="button" class="btn btn-secondary"
                                     data-dismiss="modal">{{__('custom.cancel-button')}}</button>
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger" ><i class="far fa-trash-alt"></i> Eliminar</button>
                         </form>
                     </div>
                 </div>
@@ -174,9 +174,12 @@
                                             </div>
                                         </div>
                                         <button type="button" class="btn btn-danger float-right m-1" data-dismiss="modal">
-                                            {{__('custom.cancel-button')}}</button>
+                                            {{__('custom.cancel-button')}}
+                                        </button>
+
                                         <button type="submit"
-                                                class="btn btn-primary float-right m-1">{{__('custom.update-button')}}</button>
+                                                class="btn btn-primary float-right m-1">{{__('custom.update-button')}}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -193,7 +196,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">{{__('custom.add-user-button')}}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
