@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Producto extends Model
 {
-    public function proveedor(){
-        return $this->hasOne(proveedor::class);
-    }
     use HasFactory;
+
+    public function proveedor(){
+        return $this->belongsTo(proveedor::class);
+    }
 
     /*protected $fillableProducto = [
         'name',
