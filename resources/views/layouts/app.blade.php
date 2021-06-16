@@ -86,7 +86,7 @@
                            data-toggle="dropdown-submenu">
                             <span class="mobi-mbri mobi-mbri-home mbr-iconfont mbr-iconfont-btn"></span>{{ Auth::user()->name }}
                         </a>
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu" id="menudrop">
                             <a class="nav-link link text-black display-4" href="{{ route('logout') }}" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">{{__('custom.logout')}}
                             </a>

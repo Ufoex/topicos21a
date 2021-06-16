@@ -11,7 +11,7 @@ class ProductoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -74,7 +74,21 @@ class ProductoController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'descripcion' => ['required'],
+            'cantidad' => ['required'],
+            'precio' => ['required']
+        ]);
+
+        $producto = Producto::findOrFail($id);
+        $producto->name = $request->get('name');
+        $producto->descripcion = $request->get('descripcion');
+        $producto->cantidad = $request->get('cantidad');
+        $producto->precio = $request->get('precio');
+        $producto->update();
+
+        return redirect('/productos');
     }
 
     /**

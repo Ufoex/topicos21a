@@ -102,7 +102,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{__('custom.add-user-button')}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{__('custom.add-product-button')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
 
                             <span aria-hidden="true">&times;</span>
@@ -141,6 +141,101 @@
                 </div>
             </div>
         </div>
+        @endforeach
+
+         <!-- Modal editar -->
+        @foreach($productos as $producto)
+            <div class="modal fade" id="edit{{$producto->id}}" tabindex="-1" role="dialog" aria-labelledby="delete"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{__('custom.info')}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-11 m-2">
+                                    <form action="{{route('usuarios.update',$producto->id)}}" method="POST">
+                                        @csrf
+                                        @method('put')
+                                        <div class="form-group">
+                                            <label for="name">{{ __('Name') }}</label>
+                                            <div>
+                                                <input id="name" type="text"
+                                                       class="form-control @error('name') is-invalid @enderror"
+                                                       name="name" value="{{$producto->name}}" required autocomplete="name"
+                                                       autofocus>
+
+                                                @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="descripcion">Descripcion</label>
+                                            <div>
+                                                <input id="descripcion" type="text"
+                                                       class="form-control @error('descripcion') is-invalid @enderror"
+                                                       name="descripcion" value="{{$producto->descripcion}}" required>
+
+                                                @error('descripcion')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cantidad">Cantidad</label>
+
+                                            <div>
+                                                <input id="cantidad" type="text"
+                                                       class="form-control @error('cantidad') is-invalid @enderror"
+                                                       value="{{$producto->cantidad}}" name="cantidad" required>
+
+                                                @error('cantidad')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="precio">Precio</label>
+
+                                            <div>
+                                                <input id="precio" type="text"
+                                                       class="form-control @error('precio') is-invalid @enderror"
+                                                       value="{{$producto->precio}}" name="precio" required>
+
+                                                @error('precio')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-danger float-right m-1" data-dismiss="modal">
+                                            {{__('custom.cancel-button')}}
+                                        </button>
+
+                                        <button type="submit"
+                                                class="btn btn-primary float-right m-1">{{__('custom.update-button')}}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         @endforeach
 
     </div>

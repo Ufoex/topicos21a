@@ -11,6 +11,7 @@ return [
     'actions' => 'Acciones',
     'delete-button' => 'Eliminar',
     'add-user-button' => 'Agregar Usuario',
+    'add-product-button' => 'Agregar Producto',
     'edit-button' => 'Editar',
     'users' => 'Usuarios',
     'home' => 'Inicio',

@@ -43,12 +43,7 @@
         <div class="form-group row">
             <label for="precio" class="col-md-4 col-form-label text-md-right">{{ __('Precio') }}</label>
             <div class="col-md-6">
-                <input id="precio" type="text" class="form-control @error('precio') is-invalid @enderror" name="precio" value="{{ old('precio') }}" required autocomplete="precio" autofocus>
-                @error('precio')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <input id="precio" type="text" class="form-control" name="precio" value="{{ old('precio') }}" required autocomplete="precio" autofocus>
             </div>
         </div>
 
