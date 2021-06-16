@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2 class="float-left">{{__('custom.list-user')}}</h2>
+                <h2 class="float-left">{{__('products.lista')}}</h2>
                 @if ($search)
                     <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -19,17 +19,26 @@
                 @endif
                 <button type="button" class="btn btn-success float-right" data-toggle="modal"
                         data-target="#add">
-                    {{__('custom.add-user-button')}}
+                    {{__('products.agregar')}}
                 </button>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
                     <tr>
                         <th scope="col">{{__('custom.name')}}</th>
-                        <th scope="col">{{__('custom.descripcion')}}</th>
-                        <th scope="col">{{__('custom.cantidad')}}</th>
-                        <th scope="col">{{__('custom.precio')}}</th>
+                        <th scope="col">{{__('products.descripcion')}}</th>
+                        <th scope="col">{{__('products.cantidad')}}</th>
+                        <th scope="col">{{__('products.precio')}}</th>
                         <th scope="col" class="justify-content-center">{{__('custom.actions')}}</th>
                     </tr>
                     </thead>
@@ -106,5 +115,35 @@
             </div>
         </div>
 
+        <!-- Modal eliminar -->
+        @foreach ($productos as $producto)
+        <div class="modal fade" id="delete{{$producto->id}}" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{__('custom.alert-message')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{__('custom.aler-menssage2')}}
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{route('productos.destroy', $producto)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">{{__('custom.cancel-button')}}</button>
+                            <button type="submit" class="btn btn-danger" ><i class="far fa-trash-alt"></i> Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
     </div>
 @endsection
+
+

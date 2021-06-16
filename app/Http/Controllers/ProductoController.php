@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -23,31 +24,15 @@ class ProductoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('productos.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'descripcion' => ['required', 'string', 'max:255'],
-            'cantidad' => ['required', 'integer', 'max:255'],
-            'precio' => ['required', 'integer', 'max:255'],
-        ]);
-
         $producto = new Producto();
+
         $producto->name = request('name');
         $producto->descripcion = request('descripcion');
         $producto->cantidad = request('cantidad');
@@ -87,7 +72,7 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         //
     }
@@ -100,6 +85,10 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+
+        $producto->delete($id);
+
+        return redirect()->route('producto.create');
     }
 }
