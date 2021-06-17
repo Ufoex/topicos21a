@@ -30,5 +30,11 @@ return [
     'dino' => 'Preciona "Espacio" para saltar he iniciar el juego.',
     'back' => 'Regresar',
     'provider' => 'Proveedor',
+    'providers' => 'Proveedores',
     'selectOne' => 'Selecciona uno...',
+    'clients' => 'Clientes',
+    'products' => 'Productos',
+    'sales' => 'Ventas',
+    'roles' => 'Roles',
+
 ];

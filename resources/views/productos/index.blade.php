@@ -36,23 +36,23 @@
                     <thead>
                     <tr>
                     <!-- Small button groups (default and split) -->
-                        <th scope="col">{{__('custom.name')}}</th>
-                        <th scope="col">{{__('products.descripcion')}}</th>
-                        <th scope="col">{{__('products.cantidad')}}</th>
-                        <th scope="col">{{__('products.precio')}}</th>
-                        <th scope="col">{{__('custom.provider')}}</th>
-                        <th scope="col" class="justify-content-center">{{__('custom.actions')}}</th>
+                        <th scope="col" class="text-center border-right border-left">{{__('custom.name')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('products.descripcion')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('products.cantidad')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('products.precio')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('custom.provider')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('custom.actions')}}</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($productos as $producto)
                         <tr>
-                            <td>{{$producto->name}}</td>
-                            <td>{{$producto->descripcion}}</td>
-                            <td>{{$producto->cantidad}}</td>
-                            <td>{{$producto->precio}}</td>
-                            <td>{{$producto->provider->name}}</td>
-                            <td>
+                            <td class="text-center border">{{$producto->name}}</td>
+                            <td class="text-center border">{{$producto->descripcion}}</td>
+                            <td class="text-center border">{{$producto->cantidad}}</td>
+                            <td class="text-center border">{{$producto->precio}}</td>
+                            <td class="text-center border">{{$producto->provider->name}}</td>
+                            <td class="text-center border">
                                 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#show{{$producto->id}}">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                     {{__('custom.show')}}

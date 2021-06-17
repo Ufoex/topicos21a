@@ -30,5 +30,11 @@ return [
     'dino' => 'Press "Space" to jump your Dino and start the game.',
     'back' => 'Back',
     'provider' => 'Provider',
+    'providers' => 'Providers',
     'selectOne' => 'Select One...',
+    'clients' => 'Clients',
+    'products' => 'products',
+    'sales' => 'Sales',
+    'roles' => 'Roles',
+
 ];

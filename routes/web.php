@@ -39,12 +39,14 @@ Route::get('/dino', function () {
 
 
 //RUTAS DE PRODUCTOS
-Route::get('productos', [ProductoController::class, 'index']) ->name('productos')->middleware('auth');
+Route::get('productos', [ProductoController::class, 'index']) ->name('productos.index')->middleware('auth');
 Route::get('productos', [ProductoController::class, 'index']) ->name('producto.create')->middleware('auth');
 Route::post('productos',[ProductoController::class, 'store'])->name('productos.store');
 Route::delete('productos/{id}',[ProductoController::class, 'destroy'])->name('productos.destroy')->middleware('auth');
 Route::put('productos/{id}',[ProductoController::class, 'update'])->name('productos.update')->middleware('auth');
 Route::get('productos/{id}/edit',[ProductoController::class, 'edit'])->name('productos.edit')->middleware('auth');
 
+//RUTAS DE PROVEEDORES
+Route::resource('provedores',\App\Models\Provider::class);
 
 

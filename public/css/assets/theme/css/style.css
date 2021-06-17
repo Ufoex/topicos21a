@@ -779,6 +779,9 @@ li:hover{
     border: 1px solid #eeeeee;
 }
 
+span:hover {
+    color: #fddb3a;
+}
 
 .form-control {
   background-color: #ffffff;

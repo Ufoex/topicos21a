@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <!-- Site made with Mobirise Website Builder v5.3.5, https://mobirise.com -->
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
 <section class="menu cid-s48OLK6784" once="menu" id="menu1-k">
 
     <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container-fluid">
+        <div class="container-fluid navMenu">
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="{{route('home')}}">
@@ -54,7 +54,7 @@
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7"
-                                                     href="https://mobiri.se"></a></span>
+                                                     href="#"></a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +75,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="text-black dropdown-item display-4" href="#" aria-expanded="true">
-                                <span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>Iniciar
-                                sesión
+                                <span class="mobi-mbri mobi-mbri-unlock mbr-iconfont mbr-iconfont-btn"></span>{{ __('custom.login') }}
                             </a>
                         </div>
                     </li>
@@ -98,41 +97,49 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{route('usuario.create')}}" aria-expanded="true">
-                            <span class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>Usuarios
+                        <a class="nav-link link text-black display-4 {{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}" href="{{route('usuario.create')}}" aria-expanded="true">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                {{__('custom.users')}}
+                                <?php  $users_count = App\Models\User::all()->count(); ?>
+                                <span class="mobi-mbri mobi-mbri-users mbr-iconfont mbr-iconfont-btn"></span>{{ $users_count ?? '0' }}
+                            </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{url('proveedor')}}">
-                            <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>Proveedores
+                        <a class="nav-link link text-black display-4 {{ Request::path() === 'providers' ? 'nav-link active' : 'nav-link' }}" href="{{route('provedores.index')}}">
+                            {{__('custom.providers')}}
+                            <?php  $providers_count = App\Models\Provider::all()->count(); ?>
+                            <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>{{ $providers_count ?? '0' }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{{url('clientes')}}">
-                            <span class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>Clientes
+                            <span class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.clients')}}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{url('productos')}}">
-                            <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>Productos
+                        <a class="nav-link link text-black display-4 {{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}" href="{{url('productos')}}">
+                            {{__('custom.products')}}
+                            <?php  $productos_count = App\Models\Producto::all()->count(); ?>
+                            <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>{{ $productos_count ?? '0' }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{{url('ventas')}}">
-                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>Ventas
+                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.sales')}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{{url('roles')}}">
-                            <span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>Roles
+                            <span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.roles')}}
                         </a>
                     </li>
                     @endguest
                 </ul>
-
-
             </div>
         </div>
+        <div class="dot"></div>
     </nav>
 
 </section>
