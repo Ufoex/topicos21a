@@ -44,7 +44,7 @@ Route::get('productos', [ProductoController::class, 'index']) ->name('producto.c
 Route::post('productos',[ProductoController::class, 'store'])->name('productos.store');
 Route::delete('productos/{id}',[ProductoController::class, 'destroy'])->name('productos.destroy')->middleware('auth');
 Route::put('productos/{id}',[ProductoController::class, 'update'])->name('productos.update')->middleware('auth');
-
+Route::get('productos/{id}/edit',[ProductoController::class, 'edit'])->name('productos.edit')->middleware('auth');
 
 
 

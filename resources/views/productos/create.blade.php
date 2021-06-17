@@ -4,6 +4,20 @@
     <form method="POST" action="{{ route('productos.store') }}">
         @csrf
 
+        <div class="form-group row col-md-4 col-form-label text-md-right">
+            <div class="btn-group">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Proveedor
+
+                </button>
+                <div class="dropdown-menu">
+                    @foreach ($productos as $producto)
+                    {{$producto->find($producto->id)->proveedor->name}}
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
             <div class="col-md-6">

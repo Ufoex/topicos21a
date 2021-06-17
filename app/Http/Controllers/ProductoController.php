@@ -62,7 +62,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('productos.edit',['producto'=> Producto::findOrFail($id)]);
     }
 
     /**
