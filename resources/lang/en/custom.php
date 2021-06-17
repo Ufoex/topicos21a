@@ -29,4 +29,6 @@ return [
     'english' => 'English',
     'dino' => 'Press "Space" to jump your Dino and start the game.',
     'back' => 'Back',
+    'provider' => 'Provider',
+    'selectOne' => 'Select One...',
 ];

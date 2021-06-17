@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Models\Provider;
 
 class ProductoController extends Controller
 {
@@ -15,12 +16,16 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
-        if($request){
-            $query = trim($request->get('search'));
-            $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
-            return view('productos.index',['productos' => $productos, 'search' => $query]);
-
-        }
+        $proveedores = Provider::get();
+        $productos = Producto::get();
+        return view('productos.index', compact('proveedores', 'productos'));
+//        if($request){
+//            $proveedores = Provider::get();
+//            $query = trim($request->get('search'));
+//            $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+//            return view('productos.index',['productos' => $productos, 'search' => $query, 'proveedores' => $proveedores]);
+//
+//        }
     }
 
     /**
@@ -37,6 +42,7 @@ class ProductoController extends Controller
         $producto->descripcion = request('descripcion');
         $producto->cantidad = request('cantidad');
         $producto->precio = request('precio');
+        $producto->providers_id = request('provider_id');
 
         $producto->save();
 

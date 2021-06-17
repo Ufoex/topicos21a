@@ -29,4 +29,6 @@ return [
     'english' => 'Ingles',
     'dino' => 'Preciona "Espacio" para saltar he iniciar el juego.',
     'back' => 'Regresar',
+    'provider' => 'Proveedor',
+    'selectOne' => 'Selecciona uno...',
 ];

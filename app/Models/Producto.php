@@ -9,14 +9,10 @@ class Producto extends Model
 {
     use HasFactory;
 
-    public function proveedor(){
-        return $this->belongsTo(proveedor::class);
+    protected $table = 'productos';
+
+    public function provider(){
+        return $this->belongsTo(Provider::class, 'providers_id');
     }
 
-    /*protected $fillableProducto = [
-        'name',
-        'descripcion',
-        'cantidad',
-        'precio',
-    ];*/
 }
