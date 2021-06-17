@@ -15,6 +15,15 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('descripcion');
+            $table->integer('cantidad');
+            $table->integer('precio');
+            $table->unsignedBigInteger('proveedores_id')->nullable();
+            $table->foreign('proveedores_id')
+                ->references('id')
+                ->on('proveedores')
+                ->onDelete('set null');
             $table->timestamps();
         });
     }

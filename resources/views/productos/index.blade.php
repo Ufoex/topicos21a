@@ -123,7 +123,7 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             @foreach ($productos as $producto)
-                                            {{$producto->find($producto->id)->proveedores->name}}
+{{--                                            {{$producto->find($producto->id)->proveedores->name}}--}}
                                             @endforeach
                                         </div>
                                     </div>
