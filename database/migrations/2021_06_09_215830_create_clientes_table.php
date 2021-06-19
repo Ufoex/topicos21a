@@ -18,10 +18,10 @@ class CreateClientesTable extends Migration
             $table->string('name');
             $table->string('rfc');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('direccion');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
         });
     }
 

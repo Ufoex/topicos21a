@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProviderController;
 use App\Models\Provider;
 use Illuminate\Support\Facades\Auth;
@@ -51,4 +52,5 @@ Route::get('productos/{id}/edit',[ProductoController::class, 'edit'])->name('pro
 //RUTAS DE PROVEEDORES
 Route::resource('proveedores', ProviderController::class)->middleware('auth');
 
-
+//RUTAS DE CLIENTES
+Route::resource('clientes', ClienteController::class)->middleware('auth');
