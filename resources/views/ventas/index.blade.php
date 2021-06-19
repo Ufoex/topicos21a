@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2 class="float-left">{{__('ventas.ventas')}}</h2>
+                <h2 class="float-left">{{__('ventas.lista')}}</h2>
                 {{--                @if ($search)--}}
                 {{--                    <div class="alert alert-primary d-flex align-items-center" role="alert">--}}
                 {{--                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"--}}
