@@ -189,7 +189,7 @@
                                             <input id="telefono" type="text"
                                                    class="form-control @error('telefono') is-invalid @enderror"
                                                    name="telefono" value="{{ old('telefono') }}" required
-                                                   autocomplete="telefono" autofocus>
+                                                   autocomplete="telefono" autofocus maxlength="10">
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -332,7 +332,7 @@
                                             <div>
                                                 <input id="telefono" type="text"
                                                        class="form-control @error('telefono') is-invalid @enderror"
-                                                       value="{{$cliente->telefono}}" name="telefono" required>
+                                                       value="{{$cliente->telefono}}" name="telefono" required maxlength="10">
 
                                                 @error('telefono')
                                                 <span class="invalid-feedback" role="alert">
