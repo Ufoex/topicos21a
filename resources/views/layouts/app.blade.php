@@ -107,7 +107,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4 {{ Request::path() === 'providers' ? 'nav-link active' : 'nav-link' }}" href="{{route('provedores.index')}}">
+                        <a class="nav-link link text-black display-4 {{ Request::path() === 'providers' ? 'nav-link active' : 'nav-link' }}" href="{{route('proveedores.index')}}">
                             {{__('custom.providers')}}
                             <?php  $providers_count = App\Models\Provider::all()->count(); ?>
                             <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>{{ $providers_count ?? '0' }}

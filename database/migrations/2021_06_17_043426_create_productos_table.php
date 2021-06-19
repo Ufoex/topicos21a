@@ -23,7 +23,7 @@ class CreateProductosTable extends Migration
             $table->foreign('providers_id')
                 ->references('id')
                 ->on('providers')
-                ->onDelete('set null');
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProviderController;
+use App\Models\Provider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\UsuariosController;
@@ -47,6 +49,6 @@ Route::put('productos/{id}',[ProductoController::class, 'update'])->name('produc
 Route::get('productos/{id}/edit',[ProductoController::class, 'edit'])->name('productos.edit')->middleware('auth');
 
 //RUTAS DE PROVEEDORES
-Route::resource('provedores',\App\Models\Provider::class);
+Route::resource('proveedores', ProviderController::class)->middleware('auth');
 
 

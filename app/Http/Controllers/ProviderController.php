@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -9,11 +10,13 @@ class ProviderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $proveedores = Provider::get();
+
+        return view('proveedores.index', compact('proveedores'));
     }
 
     /**
@@ -34,7 +37,17 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $provider = new Provider();
+
+        $provider->name = request('name');
+        $provider->rfc = request('rfc');
+        $provider->email = request('email');
+        $provider->direccion = request('direccion');
+        $provider->telefono = request('telefono');
+
+        $provider->save();
+
+        return redirect('/proveedores');
     }
 
     /**
@@ -68,7 +81,23 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'rfc' => ['required'],
+            'email' => ['required'],
+            'direccion' => ['required'],
+            'telefono' => ['required'],
+        ]);
+
+        $provider = Provider::findOrFail($id);
+        $provider->name = $request->get('name');
+        $provider->rfc = $request->get('rfc');
+        $provider->email = $request->get('email');
+        $provider->direccion = $request->get('direccion');
+        $provider->telefono = $request->get('telefono');
+        $provider->update();
+
+        return redirect('/proveedores');
     }
 
     /**
@@ -79,6 +108,10 @@ class ProviderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $provider = Provider::findOrFail($id);
+
+        $provider->delete($id);
+
+        return redirect()->route('proveedores.index');
     }
 }
