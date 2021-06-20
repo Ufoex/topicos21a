@@ -15,11 +15,22 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('descripcion');
             $table->string('metodoPago');
             $table->integer('cantidad');
             $table->integer('total');
+            $table->unsignedBigInteger('productos_id')->nullable()->unique();
+            $table->foreign('productos_id')
+                ->references('id')
+                ->on('productos')
+                ->onDelete('set null')
+                ->onUpdate('cascade')
+                ->nullOnDelete();
+            $table->unsignedBigInteger('clientes_id')->nullable()->unique();
+            $table->foreign('clientes_id')
+                ->references('id')
+                ->on('clientes')
+                ->onUpdate('cascade')
+                ->nullOnDelete();
             $table->timestamps();
         });
     }

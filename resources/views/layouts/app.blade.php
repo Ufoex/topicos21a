@@ -113,11 +113,13 @@
                             <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>{{ $providers_count ?? '0' }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{url('clientes')}}">
-                            <span class="mobi-mbri mobi-mbri-cash mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.clients')}}
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4 {{ Request::path() === 'clientes' ? 'nav-link active' : 'nav-link' }}" href="{{route('clientes.index')}}">
+                                {{__('clients.clients')}}
+                                <?php  $clientes_count = App\Models\Cliente::all()->count(); ?>
+                                <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>{{ $clientes_count ?? '0' }}
+                            </a>
+                        </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4 {{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}" href="{{url('productos')}}">
                             {{__('custom.products')}}
@@ -125,16 +127,13 @@
                             <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>{{ $productos_count ?? '0' }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{url('ventas')}}">
-                            <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.sales')}}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{url('roles')}}">
-                            <span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>{{__('custom.roles')}}
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4 {{ Request::path() === 'ventas' ? 'nav-link active' : 'nav-link' }}" href="{{url('ventas')}}">
+                                {{__('custom.sales')}}
+                                <?php  $ventas_count = App\Models\Venta::all()->count(); ?>
+                                <span class="mobi-mbri mobi-mbri-shopping-bag mbr-iconfont mbr-iconfont-btn"></span>{{ $ventas_count ?? '0' }}
+                            </a>
+                        </li>
                     @endguest
                 </ul>
             </div>

@@ -85,7 +85,6 @@ class ProductoController extends Controller
             'descripcion' => ['required'],
             'cantidad' => ['required'],
             'precio' => ['required'],
-            'provider_id'=>['required'],
         ]);
 
         $producto = Producto::findOrFail($id);
@@ -93,7 +92,6 @@ class ProductoController extends Controller
         $producto->descripcion = $request->get('descripcion');
         $producto->cantidad = $request->get('cantidad');
         $producto->precio = $request->get('precio');
-        $producto->provider_id = $request->get('provider_id');
         $producto->update();
 
         return redirect('/productos');

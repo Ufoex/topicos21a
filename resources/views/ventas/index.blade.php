@@ -36,8 +36,6 @@
                     <thead>
                     <tr>
                         <!-- Small button groups (default and split) -->
-                        <th scope="col" class="text-center border-right border-left">{{__('custom.name')}}</th>
-                        <th scope="col" class="text-center border-right">{{__('ventas.descripcion')}}</th>
                         <th scope="col" class="text-center border-right">{{__('ventas.metodoPago')}}</th>
                         <th scope="col" class="text-center border-right">{{__('ventas.cantidad')}}</th>
                         <th scope="col" class="text-center border-right">{{__('ventas.total')}}</th>
@@ -47,8 +45,6 @@
                     <tbody>
                     @foreach ($ventas as $venta)
                         <tr>
-                            <td class="text-center border">{{$venta->name}}</td>
-                            <td class="text-center border">{{$venta->descripcion}}</td>
                             <td class="text-center border">{{$venta->metodoPago}}</td>
                             <td class="text-center border">{{$venta->cantidad}}</td>
                             <td class="text-center border">{{$venta->total}}</td>
@@ -90,8 +86,8 @@
                         </div>
                         <div class="modal-body">
                             <h5 class="card-title">{{__('ventas.venta')}}</h5>
-                            <p class="card-text">{{__('ventas.name')}}: {{$venta->name}}</p>
-                            <p class="card-text">{{__('ventas.descripcion')}}: {{$venta->descripcion}}</p>
+                            <p class="card-text">{{__('products.client')}}: {{$venta->cliente->name ?? 'Null'}}</p>
+                            <p class="card-text">{{__('products.product')}}: {{$venta->producto->name ?? 'Null'}}</p>
                             <p class="card-text">{{__('ventas.metodoPago')}}: {{$venta->metodoPago}}</p>
                             <p class="card-text">{{__('ventas.cantidad')}}: {{$venta->cantidad}}</p>
                             <p class="card-text">{{__('ventas.total')}}: {{$venta->total}}</p>
@@ -110,7 +106,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">{{__('ventas.add')}}</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">{{__('ventas.agregar')}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -120,51 +116,38 @@
                             <div class="col-sm-11 m-2">
                                 <form method="POST" action="{{ route('ventas.store') }}">
                                     @csrf
-                                    <div class="form-group row">
-                                        <label for="name"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="name" type="text"
-                                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                                    value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                            @enderror
+                                    <div class="input-group mx-auto mb-3" style="max-width: 65.666667%;">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">{{__('clients.client')}}</label>
                                         </div>
+                                        <select class="custom-select" id="clientes_id" name="clientes_id">
+                                            <option selected>{{__('custom.selectOne')}}</option>
+                                            @foreach ($clientes as $cliente)
+                                                <option value="{{$cliente->id}}">{{$cliente->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="input-group mx-auto mb-3" style="max-width: 65.666667%;">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">{{__('products.product')}}</label>
+                                        </div>
+                                        <select class="custom-select" id="productos_id" name="productos_id">
+                                            <option selected>{{__('custom.selectOne')}}</option>
+                                            @foreach ($productos as $producto)
+                                                <option value="{{$producto->id}}">{{$producto->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <label for="descripcion"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('ventas.descripcion') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="descripcion" type="text"
-                                                    class="form-control @error('descripcion') is-invalid @enderror"
-                                                    name="descripcion" value="{{ old('descripcion') }}" required
-                                                    autocomplete="descripcion" autofocus>
-                                            @error('descripcion')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                            @enderror
+                                    <div class="input-group mx-auto mb-3" style="max-width: 65.666667%;">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="metodoPago">{{__('ventas.metodoPago')}}</label>
                                         </div>
-                                    </div>
+                                        <select class="custom-select" id="metodoPago" name="metodoPago">
+                                            <option value="caja" selected>Caja</option>
+                                            <option value="tarjeta de Credito">Tarjeta de credito</option>
 
-                                    <div class="form-group row">
-                                        <label for="metodoPago"
-                                                class="col-md-4 col-form-label text-md-right">{{ __('ventas.metodoPago') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="metodoPago" type="text"
-                                                    class="form-control @error('metodoPago') is-invalid @enderror"
-                                                    name="metodoPago" value="{{ old('metodoPago') }}" required
-                                                    autocomplete="metodoPago" autofocus>
-                                            @error('metodoPago')
-                                            <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                            @enderror
-                                        </div>
+                                        </select>
                                     </div>
 
                                     <div class="form-group row">

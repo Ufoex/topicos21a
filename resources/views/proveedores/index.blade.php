@@ -142,7 +142,7 @@
                                             <input id="rfc" type="text"
                                                    class="form-control @error('rfc') is-invalid @enderror"
                                                    name="rfc" value="{{ old('rfc') }}" required
-                                                   autocomplete="rfc" autofocus>
+                                                   autocomplete="rfc" autofocus maxlength="13">
                                             @error('rfc')
                                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -285,7 +285,7 @@
                                             <div>
                                                 <input id="rfc" type="text"
                                                        class="form-control @error('rfc') is-invalid @enderror"
-                                                       name="rfc" value="{{$proveedor->rfc}}" required>
+                                                       name="rfc" value="{{$proveedor->rfc}}" required maxlength="13">
 
                                                 @error('rfc')
                                                 <span class="invalid-feedback" role="alert">

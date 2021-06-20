@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Producto;
 use App\Models\Venta;
 use Illuminate\Http\Request;
+
 
 class VentasController extends Controller
 {
@@ -15,7 +18,9 @@ class VentasController extends Controller
     public function index(Request $request)
     {
         $ventas = Venta::all();
-        return view('ventas.index',['ventas' => $ventas]);
+        $clientes = Cliente::get();
+        $productos = Producto::get();
+        return view('ventas.index',['ventas' => $ventas, 'productos'=>$productos, 'clientes'=>$clientes]);
     }
 
     /**
@@ -38,11 +43,11 @@ class VentasController extends Controller
     {
         $ventas = new Venta();
 
-        $ventas->name = request('name');
-        $ventas->descripcion = request('descripcion');
         $ventas->metodoPago = request('metodoPago');
         $ventas->cantidad = request('cantidad');
         $ventas->total = request('total');
+        $ventas->clientes_id = request('clientes_id');
+        $ventas->productos_id = request('productos_id');
 
         $ventas->save();
 

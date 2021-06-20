@@ -86,7 +86,7 @@ class ClienteController extends Controller
             'rfc' => ['required', 'min:12|max:13'],
             'email' => ['required'],
             'direccion' => ['required'],
-            'telefono' => ['required','numeric|min:10|max:10'],
+            'telefono' => ['required','numeric','min:10'],
         ]);
 
         $cliente = Cliente::findOrFail($id);
