@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'providers'=> 'Proveedores',
+    'providers'=> 'Lista de proveedores',
     'provider'=> 'Proveedor',
     'descripcion' => 'Descripcion',
     'name' => 'Nombre',

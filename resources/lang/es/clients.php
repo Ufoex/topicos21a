@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'client'=> 'Cliente',
-    'clients'=> 'Lista de clientes',
+    'client'=> 'Lista de clientes',
+    'clients'=> 'Clientes',
     'name' => 'Nombre',
     'rfc' => 'RFC',
     'email' => 'Correo',

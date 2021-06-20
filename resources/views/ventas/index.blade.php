@@ -36,6 +36,7 @@
                     <thead>
                     <tr>
                         <!-- Small button groups (default and split) -->
+
                         <th scope="col" class="text-center border-right">{{__('ventas.metodoPago')}}</th>
                         <th scope="col" class="text-center border-right">{{__('ventas.cantidad')}}</th>
                         <th scope="col" class="text-center border-right">{{__('ventas.total')}}</th>
@@ -45,6 +46,7 @@
                     <tbody>
                     @foreach ($ventas as $venta)
                         <tr>
+
                             <td class="text-center border">{{$venta->metodoPago}}</td>
                             <td class="text-center border">{{$venta->cantidad}}</td>
                             <td class="text-center border">{{$venta->total}}</td>
