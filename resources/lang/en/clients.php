@@ -9,5 +9,5 @@ return [
     'address' => 'Address',
     'phone'=> 'Phone',
     'add'=> 'Add Client',
-    ''=> '',
+    'actions'=> 'Actions',
 ];

@@ -12,11 +12,10 @@ class VentasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ventas = Venta::get();
-
-        return view('ventas.index', compact('ventas'));
+        $ventas = Venta::all();
+        return view('ventas.index',['ventas' => $ventas]);
     }
 
     /**
@@ -37,7 +36,17 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ventas = new Venta();
+
+        $ventas->name = request('name');
+        $ventas->descripcion = request('descripcion');
+        $ventas->metodoPago = request('metodoPago');
+        $ventas->cantidad = request('cantidad');
+        $ventas->total = request('total');
+
+        $ventas->save();
+
+        return redirect('/ventas');
     }
 
     /**
@@ -71,7 +80,24 @@ class VentasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'descripcion' => ['required'],
+            'metodoPago' => ['required'],
+            'cantidad' => ['required', 'numeric|mim:1'],
+            'total' => ['required', 'numeric'],
+        ]);
+
+        $ventas = Venta::findOrFail($id);
+        $ventas->name = $request->get('name');
+        $ventas->descripcion = $request->get('descripcion');
+        $ventas->metodoPago = $request->get('metodoPago');
+        $ventas->cantidad = $request->get('cantidad');
+        $ventas->total = $request->get('total');
+        $ventas->update();
+
+        return redirect('/ventas');
+
     }
 
     /**
@@ -82,6 +108,10 @@ class VentasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ventas = Venta::findOrFail($id);
+
+        $ventas->delete($id);
+
+        return redirect()->route('ventas.index');
     }
 }

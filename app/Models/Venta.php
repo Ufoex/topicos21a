@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
-    public function user(){
+    public function user() {
         return $this->belongsTo(user::class);
     }
+
     use HasFactory;
 }

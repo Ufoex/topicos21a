@@ -19,7 +19,7 @@
                 {{--                @endif--}}
                 <button type="button" class="btn btn-success float-right" data-toggle="modal"
                         data-target="#add">
-                    {{__('ventas.add')}}
+                    {{__('ventas.agregar')}}
                 </button>
             </div>
             @if ($errors->any())
@@ -215,6 +215,37 @@
                 </div>
             </div>
         </div>
+
+         <!-- Modal eliminar -->
+         @foreach ($ventas as $ventas)
+         <div class="modal fade" id="delete{{$ventas->id}}" tabindex="-1" role="dialog" aria-labelledby="delete"
+              aria-hidden="true">
+             <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLabel">{{__('custom.alert-message')}}</h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
+                     </div>
+                     <div class="modal-body">
+                         {{__('custom.aler-menssage2')}}
+                     </div>
+                     <div class="modal-footer">
+                         <form action="{{route('ventas.destroy', $ventas)}}" method="POST">
+                             @csrf
+                             @method('DELETE')
+                             <button type="button" class="btn btn-secondary"
+                                     data-dismiss="modal">{{__('custom.cancel-button')}}</button>
+                             <button type="submit" class="btn btn-danger"><i
+                                     class="far fa-trash-alt"></i> {{__('custom.delete-button')}}</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     @endforeach
+
 
     </div>
 @endsection

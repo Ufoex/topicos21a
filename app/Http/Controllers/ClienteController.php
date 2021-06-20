@@ -83,7 +83,7 @@ class ClienteController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'rfc' => ['required'],
+            'rfc' => ['required', 'min:12|max:13'],
             'email' => ['required'],
             'direccion' => ['required'],
             'telefono' => ['required','numeric|min:10|max:10'],

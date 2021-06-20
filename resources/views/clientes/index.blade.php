@@ -41,7 +41,7 @@
                         <th scope="col" class="text-center border-right">{{__('clients.email')}}</th>
                         <th scope="col" class="text-center border-right">{{__('clients.address')}}</th>
                         <th scope="col" class="text-center border-right">{{__('clients.phone')}}</th>
-                        <th scope="col" class="text-center border-right">{{__('clients.actions')}}</th>
+                        <th scope="col" class="text-center border-right">{{__('clients.acciones')}}</th>
                     </tr>
                     </thead>
                     <tbody>
