@@ -21,7 +21,7 @@ class UserController extends Controller
         if ($request->has('search')) {
             $query = $request->get('search');
         }    
-        $users = User::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+        $users = User::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
         return view('usuarios.index',['users' => $users, 'search' => $query]);
     }
 

@@ -17,10 +17,15 @@ class VentasController extends Controller
      */
     public function index(Request $request)
     {
-        $ventas = Venta::all();
+        $query = '';
+
+        if ($request->has('search')) {
+            $query = $request->get('search');
+        }    
+        $ventas = Venta::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
         $clientes = Cliente::get();
         $productos = Producto::get();
-        return view('ventas.index',['ventas' => $ventas, 'productos'=>$productos, 'clientes'=>$clientes]);
+        return view('ventas.index',['ventas' => $ventas, 'productos'=>$productos, 'clientes'=>$clientes, 'query'=> $query]);
     }
 
     /**

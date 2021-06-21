@@ -23,7 +23,7 @@ class ProductoController extends Controller
         if ($request->has('search')) {
             $query = $request->get('search');
         }    
-        $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+        $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
         $proveedores = Provider::get();
         return view('productos.index', compact('proveedores', 'productos', 'query'));
     }

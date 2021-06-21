@@ -20,7 +20,7 @@ class ProviderController extends Controller
         if ($request->has('search')) {
             $query = $request->get('search');
         }    
-        $proveedores = Provider::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+        $proveedores = Provider::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
 
         return view('proveedores.index', compact('proveedores','query'));
     }

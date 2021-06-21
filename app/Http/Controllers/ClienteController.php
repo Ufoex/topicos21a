@@ -19,7 +19,7 @@ class ClienteController extends Controller
         if ($request->has('search')) {
             $query = $request->get('search');
         }    
-        $clientes = Cliente::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+        $clientes = Cliente::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
 
         return view('clientes.index', compact('clientes','query'));
     }
