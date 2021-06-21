@@ -96,6 +96,7 @@
                             </form>
                         </div>
                     </li>
+                    @role('Admin')
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4 {{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}" href="{{route('usuario.create')}}" aria-expanded="true">
                             <i class="nav-icon fas fa-users"></i>
@@ -127,7 +128,8 @@
                             <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>{{ $productos_count ?? '0' }}
                         </a>
                     </li>
-                        <li class="nav-item">
+                    @endrole    
+                    <li class="nav-item">
                             <a class="nav-link link text-black display-4 {{ Request::path() === 'ventas' ? 'nav-link active' : 'nav-link' }}" href="{{url('ventas')}}">
                                 {{__('custom.sales')}}
                                 <?php  $ventas_count = App\Models\Venta::all()->count(); ?>

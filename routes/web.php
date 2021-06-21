@@ -32,24 +32,20 @@ Route::get('usuarios', [UserController::class, 'index']) ->name('usuario.create'
 
 Route::get('usuarios/create', [UserController::class, 'create'])->name('usuarios');
 Route::post('usuarios',[UserController::class, 'store'])->name('usuarios.store');
-Route::get('usuarios/{id}/edit',[UserControler::class, 'edit'])->name('usuarios.edit')->middleware('auth');
-Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.update')->middleware('auth');
-Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuarios.destroy')->middleware('auth');
+Route::get('usuarios/{id}/edit',[UserControler::class, 'edit'])->name('usuarios.edit')->middleware(['auth','role:Admin']);
+Route::put('usuarios/{id}',[UserController::class, 'update'])->name('usuarios.update')->middleware(['auth','role:Admin']);
+Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuarios.destroy')->middleware(['auth','role:Admin']);
 Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
-
-Route::get('/dino', function () {
-    return view('layouts.app2');
-})->name('dino');
 
 
 //RUTAS DE PRODUCTOS
-Route::resource('productos', ProductoController::class)->middleware('auth');
+Route::resource('productos', ProductoController::class)->middleware(['auth','role:Admin']);
 
 //RUTAS DE PROVEEDORES
-Route::resource('proveedores', ProviderController::class)->middleware('auth');
+Route::resource('proveedores', ProviderController::class)->middleware(['auth','role:Admin']);
 
 //RUTAS DE CLIENTES
-Route::resource('clientes', ClienteController::class)->middleware('auth');
+Route::resource('clientes', ClienteController::class)->middleware(['auth','role:Admin']);
 
 //RUTAS DE VENTAS
 Route::resource('ventas', VentasController::class)->middleware('auth');

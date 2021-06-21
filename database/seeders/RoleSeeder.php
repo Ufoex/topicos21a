@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Models\User;
 
 
 class RoleSeeder extends Seeder
@@ -16,28 +17,18 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $roleAdmin = Role::create(['name' => 'Admin']);
-        $roleProveedor = Role::create(['name' => 'Proveedor']);
+        Role::create(['name' => 'Admin']);
+        Role::create(['name' => 'User']);
 
-        Permission::create(['name'=>'home']);
+        $user = User::create(['name'=> 'uriel',
+        'email' => 'masterllamas@hotmail.com',
+        'password' => bcrypt('Nasaja100')]);
 
-        Permission::create(['name'=>'usuario.index']);
-        Permission::create(['name'=>'usuario.create']);
-        Permission::create(['name'=>'usuario.delete']);
-        Permission::create(['name'=>'usuario.edit']);
-        Permission::create(['name'=>'usuario.show']);
+        $user2 = User::create(['name'=> 'miriam',
+        'email' => 'miriam@hotmail.com',
+        'password' => bcrypt('hola1234')]);
 
-        Permission::create(['name'=>'proveedor.index']);
-        Permission::create(['name'=>'proveedor.create']);
-        Permission::create(['name'=>'proveedor.delete']);
-        Permission::create(['name'=>'proveedor.edit']);
-        Permission::create(['name'=>'proveedor.show']);
-
-        Permission::create(['name'=>'productos.index']);
-        Permission::create(['name'=>'productos.create']);
-        Permission::create(['name'=>'productos.delete']);
-        Permission::create(['name'=>'productos.edit']);
-        Permission::create(['name'=>'productos.show']);
-
+        $user->assignRole('Admin');
+        $user2->assignRole('User');
     }
 }
