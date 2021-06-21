@@ -56,14 +56,16 @@
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7"
                                                      href="#"></a></span>
             </div>
+            @auth
             <form action="" method="get">
                 <div class="input-group">
                     <div class="form-outline">
                       <input name="search" id="search" class="form-control" placeholder="Search"/>
                     </div>
-                    <input type="submit" class="btn btn-primary" value="search" style="height: 30px; "/> 
+                    <input type="submit" class="btn btn-primary" value="search" style="height: 30px; "/>
                   </div>
             </form>
+            @endauth
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -122,6 +124,7 @@
                             <span class="mobi-mbri mobi-mbri-briefcase mbr-iconfont mbr-iconfont-btn"></span>{{ $providers_count ?? '0' }}
                         </a>
                     </li>
+                    @endrole
                         <li class="nav-item">
                             <a class="nav-link link text-black display-4 {{ Request::path() === 'clientes' ? 'nav-link active' : 'nav-link' }}" href="{{route('clientes.index')}}">
                                 {{__('clients.clients')}}
@@ -136,7 +139,6 @@
                             <span class="mobi-mbri mobi-mbri-cart-add mbr-iconfont mbr-iconfont-btn"></span>{{ $productos_count ?? '0' }}
                         </a>
                     </li>
-                    @endrole    
                     <li class="nav-item">
                             <a class="nav-link link text-black display-4 {{ Request::path() === 'ventas' ? 'nav-link active' : 'nav-link' }}" href="{{url('ventas')}}">
                                 {{__('custom.sales')}}

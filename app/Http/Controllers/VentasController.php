@@ -21,7 +21,7 @@ class VentasController extends Controller
 
         if ($request->has('search')) {
             $query = $request->get('search');
-        }    
+        }
         $ventas = Venta::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
         $clientes = Cliente::get();
         $productos = Producto::get();
@@ -92,7 +92,6 @@ class VentasController extends Controller
     {
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'descripcion' => ['required'],
             'metodoPago' => ['required'],
             'cantidad' => ['required', 'numeric|mim:1'],
             'total' => ['required', 'numeric'],
@@ -100,7 +99,6 @@ class VentasController extends Controller
 
         $ventas = Venta::findOrFail($id);
         $ventas->name = $request->get('name');
-        $ventas->descripcion = $request->get('descripcion');
         $ventas->metodoPago = $request->get('metodoPago');
         $ventas->cantidad = $request->get('cantidad');
         $ventas->total = $request->get('total');

@@ -39,13 +39,13 @@ Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.
 
 
 //RUTAS DE PRODUCTOS
-Route::resource('productos', ProductoController::class)->middleware(['auth','role:Admin']);
+Route::resource('productos', ProductoController::class)->middleware(['auth']);
 
 //RUTAS DE PROVEEDORES
 Route::resource('proveedores', ProviderController::class)->middleware(['auth','role:Admin']);
 
 //RUTAS DE CLIENTES
-Route::resource('clientes', ClienteController::class)->middleware(['auth','role:Admin']);
+Route::resource('clientes', ClienteController::class)->middleware(['auth']);
 
 //RUTAS DE VENTAS
 Route::resource('ventas', VentasController::class)->middleware('auth');
