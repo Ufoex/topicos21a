@@ -24,8 +24,9 @@ class VentasController extends Controller
         }
         $ventas = Venta::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->simplePaginate(5);
         $clientes = Cliente::get();
+        $datos = Venta::get();
         $productos = Producto::get();
-        return view('ventas.index',['ventas' => $ventas, 'productos'=>$productos, 'clientes'=>$clientes, 'query'=> $query]);
+        return view('ventas.index',compact('productos','clientes','ventas','datos'));
     }
 
     /**
@@ -47,7 +48,9 @@ class VentasController extends Controller
     public function store(Request $request)
     {
         $ventas = new Venta();
-
+        $ventas->clientes_id = request('clientes_id');
+        $ventas->productos_id = request('productos_id');
+        $ventas->name = request('name');
         $ventas->metodoPago = request('metodoPago');
         $ventas->cantidad = request('cantidad');
         $ventas->total = request('total');
@@ -93,7 +96,7 @@ class VentasController extends Controller
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'metodoPago' => ['required'],
-            'cantidad' => ['required', 'numeric|mim:1'],
+            'cantidad' => ['required', 'numeric'],
             'total' => ['required', 'numeric'],
         ]);
 

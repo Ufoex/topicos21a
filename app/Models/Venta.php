@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
-    public function user() {
-        return $this->belongsTo(user::class);
-    }
-
     public function producto(){
         return $this->belongsTo(Producto::class, 'productos_id');
     }

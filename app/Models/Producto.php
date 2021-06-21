@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Provider;
 
 class Producto extends Model
 {
@@ -13,6 +14,9 @@ class Producto extends Model
 
     public function provider(){
         return $this->belongsTo(Provider::class, 'providers_id');
+    }
+    public function ventas(){
+        return $this->hasMany(Venta::class);
     }
 
 }
