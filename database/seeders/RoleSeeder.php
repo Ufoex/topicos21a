@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
 
         $user = User::create(['name'=> 'uriel',
         'email' => 'masterllamas@hotmail.com',
-        'password' => bcrypt('Nasaja100')]);
+        'password' => bcrypt('hola1234')]);
 
         $user2 = User::create(['name'=> 'miriam',
         'email' => 'miriam@hotmail.com',
