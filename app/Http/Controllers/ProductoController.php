@@ -10,10 +10,6 @@ use App\Models\Provider;
 class ProductoController extends Controller
 {
 
-    public function __construct()
-    {
-        //$this->middleware(['role:Admin']);
-    }
 
     /**
      * Display a listing of the resource.
@@ -22,16 +18,14 @@ class ProductoController extends Controller
      */
     public function index(Request $request)
     {
+        $query = '';
+
+        if ($request->has('search')) {
+            $query = $request->get('search');
+        }    
+        $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
         $proveedores = Provider::get();
-        $productos = Producto::get();
-        return view('productos.index', compact('proveedores', 'productos'));
-//        if($request){
-//            $proveedores = Provider::get();
-//            $query = trim($request->get('search'));
-//            $productos = Producto::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
-//            return view('productos.index',['productos' => $productos, 'search' => $query, 'proveedores' => $proveedores]);
-//
-//        }
+        return view('productos.index', compact('proveedores', 'productos', 'query'));
     }
 
     /**

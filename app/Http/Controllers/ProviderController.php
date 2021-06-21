@@ -12,11 +12,17 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $proveedores = Provider::get();
 
-        return view('proveedores.index', compact('proveedores'));
+        $query = '';
+
+        if ($request->has('search')) {
+            $query = $request->get('search');
+        }    
+        $proveedores = Provider::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+
+        return view('proveedores.index', compact('proveedores','query'));
     }
 
     /**

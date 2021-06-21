@@ -12,11 +12,16 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::get();
+        $query = '';
 
-        return view('clientes.index', compact('clientes'));
+        if ($request->has('search')) {
+            $query = $request->get('search');
+        }    
+        $clientes = Cliente::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+
+        return view('clientes.index', compact('clientes','query'));
     }
 
     /**

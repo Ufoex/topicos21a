@@ -16,12 +16,13 @@ class UserController extends Controller
      */
     public function index(Request $request){
 
-        if($request){
-            $query = trim($request->get('search'));
-            $users = User::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
-            return view('usuarios.index',['users' => $users, 'search' => $query]);
+        $query = '';
 
-        }
+        if ($request->has('search')) {
+            $query = $request->get('search');
+        }    
+        $users = User::where('name','LIKE','%'.$query.'%')->orderBy('id','asc')->get();
+        return view('usuarios.index',['users' => $users, 'search' => $query]);
     }
 
     /**

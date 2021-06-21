@@ -56,6 +56,14 @@
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7"
                                                      href="#"></a></span>
             </div>
+            <form action="" method="get">
+                <div class="input-group">
+                    <div class="form-outline">
+                      <input name="search" id="search" class="form-control" placeholder="Search"/>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="search" style="height: 30px; "/> 
+                  </div>
+            </form>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
