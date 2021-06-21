@@ -281,7 +281,7 @@
                                                 <input id="name" type="text"
                                                        class="form-control @error('name') is-invalid @enderror"
                                                        name="name" value="{{ old('name') }}" required
-                                                       autocomplete="name" autofocus>
+                                                       autocomplete="name" autofocus value="{{$venta->name}}">
                                                 @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -297,7 +297,7 @@
                                                 <input id="cantidad" type="text"
                                                        class="form-control @error('cantidad') is-invalid @enderror"
                                                        name="cantidad" value="{{ old('cantidad') }}" required
-                                                       autocomplete="cantidad" autofocus>
+                                                       autocomplete="cantidad" autofocus value="{{$venta->cantidad}}">
                                                 @error('cantidad')
                                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -312,7 +312,7 @@
                                                 <input id="total" type="text"
                                                        class="form-control @error('total') is-invalid @enderror"
                                                        name="total" value="{{ old('total') }}" required
-                                                       autocomplete="total" autofocus maxlength="10">
+                                                       autocomplete="total" autofocus maxlength="10" value="{{$venta->total}}">
                                                 @error('total')
                                                 <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
