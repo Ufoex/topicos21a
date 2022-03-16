@@ -38,7 +38,7 @@ Route::delete('usuarios/{id}',[UserController::class, 'destroy'])->name('usuario
 Route::get('usuarios/{id}/show',[UserController::class,'show'])->name('usuarios.show');
 
 
-//RUTAS DE PRODUCTOS
+//RUTAS DE PRODUCTOS hola
 Route::resource('productos', ProductoController::class)->middleware(['auth']);
 
 //RUTAS DE PROVEEDORES
